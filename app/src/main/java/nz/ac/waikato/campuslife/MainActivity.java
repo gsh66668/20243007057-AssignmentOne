@@ -1,5 +1,6 @@
 package nz.ac.waikato.campuslife;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -10,8 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
  * CampusLife main screen.
  *
  * <p>Shows the campus banner with the welcome text and the four topic buttons
- * (Facilities, Events, Clubs, Support). Tapping a button currently only shows a
- * confirmation Toast (Part E).</p>
+ * (Facilities, Events, Clubs, Support). Tapping a button shows a confirmation
+ * Toast (Part E) and then opens {@link DetailActivity} with the index of the
+ * topic, which is the unique identifier used by the detail screen (Part G).</p>
  */
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             R.id.btn_clubs,
             R.id.btn_support};
 
-    /** Short topic names used by the Toast message. */
+    /** Short topic names, used for the Toast and for the detail screen header. */
     private static final int[] TOPIC_LABEL_IDS = {
             R.string.label_facilities,
             R.string.label_events,
@@ -37,21 +39,30 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // A single loop attaches the click listener to all four buttons.
+        // A single loop attaches the click listener to all four buttons. The
+        // loop index is the identifier that travels to DetailActivity, so the
+        // app never needs an if statement or a switch case to tell topics apart.
         for (int index = 0; index < TOPIC_BUTTON_IDS.length; index++) {
+            final int topicIndex = index;
             final String topicLabel = getString(TOPIC_LABEL_IDS[index]);
 
             ImageButton button = findViewById(TOPIC_BUTTON_IDS[index]);
-            button.setOnClickListener(view -> showClickToast(topicLabel));
+            button.setOnClickListener(view -> openTopic(topicIndex, topicLabel));
         }
     }
 
     /**
-     * Confirms the click with a Toast, e.g. "Facilities clicked".
+     * Confirms the click with a Toast, then starts the detail screen for that topic.
      *
-     * @param topicLabel short topic name of the button that was tapped
+     * @param topicIndex position of the topic in arrays.xml (0 to 3)
+     * @param topicLabel short topic name, e.g. "Facilities"
      */
-    private void showClickToast(String topicLabel) {
+    private void openTopic(int topicIndex, String topicLabel) {
         Toast.makeText(this, getString(R.string.toast_clicked, topicLabel), Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(this, DetailActivity.class);
+        intent.putExtra(DetailActivity.EXTRA_TOPIC_INDEX, topicIndex);
+        intent.putExtra(DetailActivity.EXTRA_TOPIC_LABEL, topicLabel);
+        startActivity(intent);
     }
 }
