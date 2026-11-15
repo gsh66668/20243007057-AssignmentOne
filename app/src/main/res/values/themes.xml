@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      Light theme with no action bar, so the campus banner can run edge to edge
+      exactly as it does in the assignment screenshots.
+    -->
+    <style name="Theme.CampusLife" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimaryDark">@color/green</item>
+        <item name="colorAccent">@color/light_green</item>
+        <item name="android:statusBarColor">@color/green</item>
+        <item name="android:windowBackground">@color/green</item>
+    </style>
+</resources>
