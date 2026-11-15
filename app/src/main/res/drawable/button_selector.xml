@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Part C: button selector.
+  The button is dark green when idle and light green while it is pressed.
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/light_green" />
+            <corners android:radius="@dimen/padding_small" />
+        </shape>
+    </item>
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/green" />
+            <corners android:radius="@dimen/padding_small" />
+        </shape>
+    </item>
+</selector>
