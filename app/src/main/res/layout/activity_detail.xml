@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Part F: layout for DetailActivity.
+
+  LinearLayout (vertical, white background)
+    FrameLayout  - banner photo with the topic icon and the topic name on top
+    LinearLayout - title band (placeholder "This is a title")
+    ScrollView   - the long content text from arrays.xml
+
+  All sizes come from @dimen; there are no hard-coded sizes anywhere.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <!-- ================= Header: icon + topic name ================= -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="30">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/content_description_banner"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_main_banner" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_medium">
+
+            <ImageView
+                android:id="@+id/detail_icon"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="@string/content_description_banner"
+                android:padding="@dimen/detail_icon_padding"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:id="@+id/detail_header"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/header_text"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- ================= Title band + scrolling content ================= -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="70"
+        android:divider="?android:attr/listDivider"
+        android:orientation="vertical"
+        android:showDividers="middle">
+
+        <TextView
+            android:id="@+id/detail_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/title_band"
+            android:gravity="center"
+            android:padding="@dimen/padding_medium"
+            android:text="@string/detail_placeholder_title"
+            android:textColor="@color/text_dark"
+            android:textSize="@dimen/title_text"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true"
+            android:scrollbars="vertical">
+
+            <TextView
+                android:id="@+id/detail_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="@dimen/line_spacing_extra"
+                android:padding="@dimen/padding_medium"
+                android:text="@string/detail_placeholder_content"
+                android:textColor="@color/text_dark"
+                android:textSize="@dimen/body_text" />
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>
