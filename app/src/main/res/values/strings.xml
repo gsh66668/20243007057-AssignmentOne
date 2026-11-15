@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Part C: the application is now called CampusLife -->
+    <string name="app_name">CampusLife</string>
+
+    <!-- Banner text shown across the top of the main screen -->
+    <string name="welcome_text">Welcome to CampusLife - Your Pocket Guide to University of Waikato</string>
+
+    <!-- Labels under the four topic buttons -->
+    <string name="label_facilities">Facilities</string>
+    <string name="label_events">Events</string>
+    <string name="label_clubs">Clubs</string>
+    <string name="label_support">Support</string>
+
+    <!-- Placeholder text used before the detail screen is populated -->
+    <string name="detail_placeholder_title">This is a title</string>
+    <string name="detail_placeholder_content">This is content</string>
+
+    <!-- Toast message: "%1$s clicked" becomes "Facilities clicked" etc. -->
+    <string name="toast_clicked">%1$s clicked</string>
+
+    <string name="content_description_banner">University of Waikato campus</string>
+</resources>
