@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Part D: landscape version of the main screen.
+
+  The banner is kept, but the four topic cells now sit side by side in a single
+  row instead of a two-by-two grid. The only structural change compared with
+  res/layout/activity_main.xml is that the two horizontal rows became one row of
+  four cells - everything else is identical.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green"
+    android:orientation="vertical">
+
+    <!-- ===================== Banner ===================== -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="50">
+
+        <ImageView
+            android:id="@+id/main_banner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/content_description_banner"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_main_banner" />
+
+        <TextView
+            android:id="@+id/main_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="@dimen/padding_medium"
+            android:text="@string/welcome_text"
+            android:textColor="@color/white"
+            android:textSize="40sp" />
+    </FrameLayout>
+
+    <!-- ============ Four topic cells side by side ============ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="50"
+        android:divider="?android:attr/listDivider"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_small"
+        android:showDividers="middle">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/btn_facilities"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_selector"
+                android:contentDescription="@string/label_facilities"
+                android:scaleType="fitCenter"
+                android:src="@drawable/img_btn_facilities" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="@dimen/padding_small"
+                android:text="@string/label_facilities"
+                android:textColor="@color/white"
+                android:textSize="@dimen/label_text" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/btn_events"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_selector"
+                android:contentDescription="@string/label_events"
+                android:scaleType="fitCenter"
+                android:src="@drawable/img_btn_events" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="@dimen/padding_small"
+                android:text="@string/label_events"
+                android:textColor="@color/white"
+                android:textSize="@dimen/label_text" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/btn_clubs"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_selector"
+                android:contentDescription="@string/label_clubs"
+                android:scaleType="fitCenter"
+                android:src="@drawable/img_btn_clubs" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="@dimen/padding_small"
+                android:text="@string/label_clubs"
+                android:textColor="@color/white"
+                android:textSize="@dimen/label_text" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/btn_support"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_selector"
+                android:contentDescription="@string/label_support"
+                android:scaleType="fitCenter"
+                android:src="@drawable/img_btn_support" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="@dimen/padding_small"
+                android:text="@string/label_support"
+                android:textColor="@color/white"
+                android:textSize="@dimen/label_text" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
